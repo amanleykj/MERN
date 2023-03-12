@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  padding: 15px;
 }
 
 .App-logo {
@@ -8,12 +7,12 @@
   pointer-events: none;
 }
 
-.first_top {
-  border: .5px solid black;
-  background-color: aliceblue;
+.inner_div {
+  border: 1px solid black;
+  padding: 15px;
+  margin: 2px;
 
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
