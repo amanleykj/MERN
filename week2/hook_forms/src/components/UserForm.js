@@ -5,25 +5,40 @@ const UserForm = (props) => {
     const [ lastName, setLastName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
-    const [ confirm_password, setConfirm_password ] = useState("")
+    const [ confirm_password, setConfirm_password ] = useState("");
+    const [ hasBeenSubmitted, setHasBeenSubmitted ] = useState(false);
     
     const createUser = (e) => {
 
         e.preventDefault();
         
-        const newUser = {
-            firstName,
-            lastName,
-            email,
-            password,
-            confirm_password
-        };
+        const newUser = { firstName, lastName, email, password, confirm_password, hasBeenSubmitted };
         console.log("Welcome ", newUser);
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setConfirm_password("");
+        setHasBeenSubmitted(true);
     };
 
-    return(
+    // const formMessage = () => {
+    //     if( hasBeenSubmitted ) {
+    //         return "Thank you for submitting this form.";
+    //     }
+    //     else {
+    //         return "Welcome, please submit the form below.";
+    //     }
+    // };
+    // Above not used due to using the ternary operator below (another way to do an if/else statement)
+
+    return (
         <div>
-            <form onSubmit= { createUser }>
+            <form onSubmit = { createUser }>
+            {
+            hasBeenSubmitted ?
+            <h3>Thank you for submitting the form.</h3> : <h3>Welcome, please submit the form below.</h3>
+            }
                 <div className='form-floating mb-3'>
                     <label htmlFor="floatingInput">First Name: </label>
                     <input type="text" className='form-control' id='floatingInput' onChange={ (e) => setFirstName(e.target.value)} value={ firstName } />
@@ -53,7 +68,7 @@ const UserForm = (props) => {
             </form>
 
             <p>Your Form Data Here: </p>
-            <p>{ firstName }</p>
+            <p> { firstName }</p>
             <p>{ lastName }</p>
             <p>{ email }</p>
             <p>{ password }</p>
