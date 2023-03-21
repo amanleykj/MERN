@@ -1,10 +1,12 @@
 import './App.css';
 import React, { useState } from "react";
-import ColorForm from './components/ColorForm.js';
-import ColorDisplay from './components/ColorDisplay.js';
+import ColorDisplay from './components/ColorDisplay';
+import ColorForm from './components/ColorForm';
 
 function App() {
-  const [ currentMsg, setCurrentMsg ] = useState("Listed item be here, please.");
+  const [ currentMsg, setCurrentMsg ] = useState("No messages yet.");
+
+  const [ boxColorArray, setBoxColorArray ] = useState([])
 
   const youveGotMail = ( newMessage ) => {
     setCurrentMsg( newMessage );
@@ -13,8 +15,8 @@ function App() {
   return (
     <div className="App">
       
-      <ColorForm onNewMessage = { youveGotMail } />
-      <ColorDisplay message = { currentMsg }/>
+      <ColorForm title = {'Form One'} boxColorArray = { boxColorArray } setBoxColorArray = { setBoxColorArray } onNewMessage = {youveGotMail} />
+      <ColorDisplay boxColorArray = { boxColorArray } message = { currentMsg } />
 
     </div>
   );

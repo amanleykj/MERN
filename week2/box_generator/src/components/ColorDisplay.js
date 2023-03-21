@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-import styles from './ColorDisplay.module.css';
+import React from 'react';
 
 const ColorDisplay = (props) => {
 
-    // const bucketOfSquares = [];
-
-    // const getSquares = (array) => {
-    //     for (let index = 0; index < array.length; index++) {
-    //         const element = array[index];
-            
-    //     }
-    // }
-
+    const { boxColorArray } = props;
+    
     return (
         <div>
-            <h1>Your color blocks are below</h1>
-            
-            <div className='square_make'> 
-                <p>{ props.message }</p>
-            </div>
-            
-            
+            <p>All below</p>
+            <p>You chose {boxColorArray}</p>
+            {
+                boxColorArray.map((color, index) => (
+                    <div key = {index} style=
+                    {{display : 'inline-block', margin : '10px', height : '50px', width : '50px', backgroundColor : color }}>
+                    </div>
+                ))
+            }
         </div>
     );
 }

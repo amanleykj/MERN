@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 
 const ColorForm = (props) => {
-
-    const [ msg, setMsg ] = useState("");
+    
+    const { boxColorArray, setBoxColorArray } = props;
+    
+    const [ color, setColor ] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onNewMessage(msg)
-    };
+        setBoxColorArray( [ ...boxColorArray, color ] );
+    }
 
     return (
         <div>
-            <h1>Hi friends of mine</h1>
-            <form onSubmit={ handleSubmit }>
-                <textarea 
-                placeholder='Submit color here.' 
-                onChange={ (e) => setMsg(e.target.value)}>
-                </textarea>
+            <h1>{props.title}</h1>
+            <p>Enter value below</p>
+            <form onSubmit={ handleSubmit } style={{ margin : '15px'}}>
+                <input type = 'text' name = 'color' onChange = { (e) => setColor(e.target.value) } />
+                <button>Add Square</button>
             </form>
-            <input type="submit" value="Submit Here" />
+            <p>Specify height and width of square</p>
+            
+    
         </div>
     );
 }
