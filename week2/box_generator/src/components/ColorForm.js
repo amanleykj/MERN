@@ -6,10 +6,12 @@ const ColorForm = (props) => {
     
     const [ color, setColor ] = useState("");
 
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         setBoxColorArray( [ ...boxColorArray, color ] );
     }
+
 
     return (
         <div>
@@ -20,7 +22,7 @@ const ColorForm = (props) => {
                 <button>Add Square</button>
             </form>
             <p>Specify height and width of square</p>
-            
+
     
         </div>
     );
