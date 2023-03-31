@@ -5,6 +5,7 @@ const Number = () => {
 
     const { number } = useParams();
 
+// jsx
     return (
         <div>
             <h1>The number is: {number}</h1>

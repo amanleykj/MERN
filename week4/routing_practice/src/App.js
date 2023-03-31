@@ -14,7 +14,6 @@ function App() {
       <br />
         <Routes>
           <Route path = '/home' element = {<Form/>}/>
-          <Route path = '/:number' element = {<Number/>}/>
           <Route path = '/:word' element = {<Word/>}/>
           <Route path = '/:word/:color1/:color2' element = {<All/>}/>
         </Routes>

@@ -7,9 +7,16 @@ const Word = () => {
 
     return (
         <div>
-            <h1>The word is: {word}</h1>
+            {
+                isNaN(+`${word}`) ?  
+            <h1>The word is: {word}</h1> :
+            <h1>The number is: {word}</h1>
+            }
         </div>
     );
 }
 
 export default Word;
+
+
+// consolidate num and word together and in that component, use the learn platform's advice.
