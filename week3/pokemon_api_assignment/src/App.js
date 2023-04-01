@@ -1,18 +1,17 @@
-import './App.css';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import './App.css'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 function App() {
 
-  const [ pokemonChars, setPokemonChars ] = useState('')
+  const [ pokemonChars, setPokemonChars ] = useState([]);
 
   useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon/ditto')
+    axios.get('https://pokeapi.co/api/v2/pokemon')
       .then((response) => {
-
-        console.log('RESPONSE');
-
-        setPokemonChars(response.data.results)
+        console.log('RESPONSE LOOK HERE');
+        console.log(response);
+        setPokemonChars(response.data.results);
       })
       .catch((err) => {
         console.log(err);
@@ -21,15 +20,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pokemon API</h1>
-      <a href="https://swapi.dev/" target='_blank'>Click here to view the <b>swapi</b> documentation</a>
+      <h1>Using Pokemon API</h1>
       {
-        starWarsCharacters.map((character, idx) => (
-          <div key={idx}>
-            <h2>Name: {character.name}</h2>
-
+        pokemonChars.map((pokemon, idx) => (
+          <div key = { idx }>
+            <h2>Name: { pokemon.name }</h2>
+          </div>
+        ))
+      }
     </div>
-  );
+  )
 }
 
 export default App;
