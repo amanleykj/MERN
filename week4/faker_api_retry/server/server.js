@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const port = 8001;
-// we can create a function to return a random / fake "Product"
 const { faker } = require('@faker-js/faker');
 
 // const createProduct = () => {
@@ -37,8 +36,11 @@ const createCompany = () => ({
 // -------------------------------
 // -------------------------------
 // -------------------------------
+// https://fakerjs.dev/api/
 // -------------------------------
 // -------------------------------
+
+// request to the client; the response to send back to the client
 
 app.get("/api/users/new", (request, response) => {
     const newUserMake = createUser();
@@ -46,7 +48,7 @@ app.get("/api/users/new", (request, response) => {
 })
 
 app.get("/api/companies/new", (request, response) => {
-    const newCompanyMake = createCompany();
+    const newCompanyMake =  createCompany();
     response.json(newCompanyMake)
 })
 
