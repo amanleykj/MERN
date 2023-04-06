@@ -10,6 +10,8 @@ const PersonForm = () => {
 
     const [ lastName, setLastName ] = useState('')
 
+    const [ age, setAge ] = useState('')
+
     useEffect(() => {
         axios.get('http://localhost:8000/api')
             .then( response => setMessage(response.data.message))
@@ -20,7 +22,8 @@ const PersonForm = () => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/people', {
             firstName,
-            lastName
+            lastName,
+            age
         })
             .then(response => {
                 console.log(response)
@@ -33,13 +36,16 @@ const PersonForm = () => {
     return (
         <div>
             <br />
-            <div>
+            <div class = 'mb-3'>
                 <form onSubmit={submitHandler}>
                     <label>First Name: </label>
-                    <input type="text" onChange={(e) => setFirstName(e.target.value)}/>
+                    <input type="text" class = 'form-control' onChange={(e) => setFirstName(e.target.value)}/>
 
                     <label>Last Name: </label>
-                    <input type="text" onChange={(e) => setLastName(e.target.value)} />
+                    <input type="text" class = 'form-control' onChange={(e) => setLastName(e.target.value)} />
+
+                    <label>Age: </label>
+                    <input type = 'text' class = 'form-control' onChange={(e) => setAge(e.target.value)} />
 
                     <button type='submit'>Submit Entry</button>
                 </form>

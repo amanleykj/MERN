@@ -5,17 +5,22 @@ const mongoose = require('mongoose');
 
 const PersonSchema = new mongoose.Schema({
     firstName: { 
-        type: String, 
+        type : String, 
         required : [true, 'First name is required here.'],
         minLength : [3, 'Your name must be at least three characters long.'],
         maxLength : [10, 'Your name cannot be longer than ten characters.']
-},
+        },
     lastName: { 
         type: String,
         required : [true, 'Last name is required here.'],
         minLength : [3, 'Your name must be at least three characters long.'],
         maxLength : [10, 'Your name cannot be longer than ten characters.']
-}
+},
+    age : {
+        type: Number,
+        required : [ true, 'Age is required'],
+        min : [ 18, 'You must be at least 18 years old to use this site.']
+    }
 }, { timestamps: true });
 
 // NUMBERS AND MORE

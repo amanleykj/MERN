@@ -18,7 +18,7 @@ module.exports.index = (request, response) => {  //We are exporting a key:val pa
     });
 }
 
-module.exports.createPerson = (request, response) => {
+module.exports.createUser = (request, response) => {
     Person.create(request.body) //This will use whatever the body of the client's request sends over
         .then(person => response.json(person))
         .catch(err => response.json(err));
