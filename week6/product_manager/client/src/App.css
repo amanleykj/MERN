@@ -8,7 +8,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+li {
+  list-style-type: none;
+}
 button {
   margin: 15px;
 }
