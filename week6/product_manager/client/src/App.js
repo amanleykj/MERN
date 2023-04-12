@@ -7,9 +7,8 @@ import DisplayOne from './components/DisplayOne';
 function App() {
 
   return (
-    <div className="App">
-
       <BrowserRouter>
+    <div className="App">
 
         <h1>Product Manager</h1>
 
@@ -18,9 +17,9 @@ function App() {
           <Route element = {<DisplayOne/>} path = '/oneProduct/:id' />
         </Routes>
 
-      </BrowserRouter>
 
     </div>
+      </BrowserRouter>
   );
 }
 

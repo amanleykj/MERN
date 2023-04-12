@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const PersonForm = () => {
+
+    const [ errors, setErrors ] = useState({});
+
+    const navigate = useNavigate();
 
     const [ message, setMessage ] = useState('Loading...')
 
@@ -25,8 +30,9 @@ const PersonForm = () => {
             age
         })
             .then(response => {
-                console.log(response)
-                console.log(response.data)
+                console.log(response);
+                console.log(response.data);
+                navigate('/')
             })
             .catch(error => console.log(error));
         

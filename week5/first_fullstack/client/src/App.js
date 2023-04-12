@@ -1,7 +1,10 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import PersonForm from './components/PersonForm';
+import OneUser from './components/OneUser';
 import axios from 'axios';
+import DisplayEntries from './components/DisplayEntries';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 
 // useEffect used to make sure that things are loaded once and not a million times, breaking your server
 // You are wrapping your axios request inside the useEffect
@@ -26,8 +29,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1>First Full Stack | Welcome</h1>
-      <PersonForm />
+      <BrowserRouter>
+        <h1>First Full Stack | Welcome</h1>
+        <Link to ='/'>Home</Link>
+          <Routes>
+            <Route path = '/' element = {<PersonForm/>}/>
+            <Route path = '/' element = {<DisplayEntries userList = {userList} setUserList = { setUserList }/>}/>
+            <Route path = '/viewUser/:id' element = {<OneUser />}/>
+          </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -34,7 +34,9 @@ module.exports = {
     deleteProduct : ( request, response ) => {
         Product.deleteOne({ _id : request.params.id })
         .then((result) => {
-            response.json({ result : result })
+            response.status(204).send(); // added this portion here
+            console.log('Successfully deleted that one'); //added this portion here too
+            response.json({ result : result });
         })
         .catch((error) => {
             response.json({ message : 'Error(s) are as follows: ' + error})
@@ -44,7 +46,8 @@ module.exports = {
     updateProduct : ( request, response ) => {
         Product.findOneAndUpdate({ _id : request.params.id }, request.body, { new : true, runValidators : true})
         .then((updatedProduct) => {
-            response.json({ product : updatedProduct })
+            response.status(201); // changed this part; might need to delete this part
+            response.json({ product : updatedProduct });
         })
         .catch((error) => {
             response.json({ message : 'Error(s) are as follows: ' + error})
