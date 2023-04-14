@@ -4,12 +4,12 @@ import { useParams, Link } from 'react-router-dom';
 
 const DisplayOne = (props) => {
 
-    const { oneProductHere } = useParams();
+    const { id } = useParams();
 
     const [ oneProduct, setOneProduct] = useState({})
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/oneProduct/${oneProductHere}`)
+        axios.get(`http://localhost:8000/api/oneProduct/${id}`)
         .then((response) => {
             console.log(response);
             console.log('HI FRIENDS AND FAMILY')
@@ -26,9 +26,9 @@ const DisplayOne = (props) => {
             
             <div>
 
-                <h1>{oneProduct.title}</h1>
-                <h2>${oneProduct.price}</h2>
-                <h2>{oneProduct.description}</h2>
+                <h2>{oneProduct.title}</h2>
+                <p>${oneProduct.price}</p>
+                <p>{oneProduct.description}</p>
                 <Link to = '/' >Home</Link>
                 
             </div>

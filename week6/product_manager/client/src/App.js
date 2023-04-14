@@ -10,8 +10,6 @@ function App() {
       <BrowserRouter>
     <div className="App">
 
-        <h1>Product Manager</h1>
-
         <Routes>
           <Route element = {<Main/>} path = '/' default />
           <Route element = {<DisplayOne/>} path = '/oneProduct/:id' />

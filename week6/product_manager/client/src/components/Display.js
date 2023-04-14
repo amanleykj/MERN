@@ -26,13 +26,9 @@ const Display = (props) => {
                         productList.map((value, index) => (
                             <div key = {index}>
                                 
-                                Product : <Link to = {`/${value._id}`}>{value.title}</Link>
+                                <Link to = {`/oneProduct/${value._id}`}>{value.title}</Link>
                                 <br />
-                                Price: ${value.price}
                                 <br />
-                                Description: {value.description}
-                                <br />
-                                <hr />
                                 
                             </div>
                     ))
