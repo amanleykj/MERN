@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Form = (props) => {
 
@@ -11,26 +12,24 @@ const Form = (props) => {
         description : ""
     });
 
+    const navigate = useNavigate()
+
     const changeHandler = (e) => {
         setNewProduct({...newProduct, [e.target.name] : e.target.value})
     }
 
     const createProduct = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/createProduct', {
-            title : 'title',
-            price : 'price',
-            description : 'description'
-        })
+        axios.post('http://localhost:8000/api/createProduct', newProduct)
         .then((response) => {
-            console.log(response);
-            console.log(response.data);
-            setProductList([...productList, response.data]);
+            console.log(response)
             setNewProduct({
                 title : "",
                 price : "",
                 description : ""
             })
+            setProductList([...productList, newProduct])
+            navigate('/')
         })
         .catch((error) => {
             console.log('The following are errors' + error)
@@ -41,8 +40,6 @@ const Form = (props) => {
 
         <div className = 'mb-3'>
 
-            <h1>Product Manager</h1>
-            
             <form onSubmit = { createProduct }>
                 
                 <label className='form-label'>Title: </label>
@@ -52,7 +49,7 @@ const Form = (props) => {
                 <input type="number" name = 'price' className='form-control' value = {newProduct.price} onChange={changeHandler} />
 
                 <label className='form-label'>Description: </label>
-                <input type="text" name = 'description' className='form-control' value = {newProduct.description} onChange={changeHandler} />
+                <input type="text" name = 'description' className='form-control' value={newProduct.description} onChange={changeHandler} />
             
             <button className='btn btn-primary'>Create</button>
             </form>

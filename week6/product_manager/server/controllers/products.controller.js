@@ -31,12 +31,13 @@ module.exports = {
         })
     },
 
+    // took the send() out
+    // 
     deleteProduct : ( request, response ) => {
         Product.deleteOne({ _id : request.params.id })
         .then((result) => {
-            response.status(204).send(); // added this portion here
-            console.log('Successfully deleted that one'); //added this portion here too
-            response.json({ result : result });
+            console.log('Successfully deleted that one.'); //added this portion here too
+            response.status(204).json({ result : result });
         })
         .catch((error) => {
             response.json({ message : 'Error(s) are as follows: ' + error})
