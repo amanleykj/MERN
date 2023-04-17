@@ -3,6 +3,9 @@
   padding: 15px;
 }
 
+.danger-text {
+  color: red;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -16,7 +19,7 @@
 
 .author-div {
   border: 1px solid black;
-  margin: 3px;
+  margin: 5px;
 }
 
 .App-header {

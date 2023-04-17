@@ -9,6 +9,8 @@ const NewAuthor = () => {
 
     const navigate = useNavigate()
 
+    const [ errors, setErrors ] = useState({})
+
     const [ author, setAuthor ] = useState({
         firstName : '',
         lastName : ''
@@ -31,6 +33,7 @@ const NewAuthor = () => {
         })
         .catch((errors) => {
             console.log(`Your errors are here: ` + errors)
+            setErrors(errors.response.data.errors)
         })
     }
 
@@ -45,9 +48,17 @@ const NewAuthor = () => {
 
                             <label className='form-label'>First Name: </label>
                             <input type="text" className='form-control' name = 'firstName' value = {author.firstName} onChange={changeHandler} />
+                            {
+                                errors.firstName?
+                                <p className='danger-text'>{errors.firstName.message}</p> : null
+                            }
 
                             <label className='form-label'>Last Name: </label>
                             <input type="text" className='form-control' name = 'lastName' value = {author.lastName} onChange={changeHandler} />
+                            {
+                                errors.lastName?
+                                <p className='danger-text'>{errors.lastName.message}</p> : null
+                            }
 
                             <button>Submit</button>
 

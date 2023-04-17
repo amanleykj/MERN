@@ -37,7 +37,7 @@ const DisplayAll = () => {
         <div>
             <h2>Authors are listed below</h2>
 
-            <Link to = '/newAuthor'><p>Add an author</p></Link>
+            <Link to = '/newAuthor'><button className='btn btn-primary'>Add your own author</button></Link>
 
             {
                 
@@ -46,7 +46,7 @@ const DisplayAll = () => {
                     <h3>{value.firstName} {value.lastName}</h3>
                     <button onClick={() => deleteHandler(value._id)}>Delete Author</button>
                     <br />
-                    <Link to = {`/${value._id}`}>Update Author</Link>
+                    <Link to = {`/${value._id}`}><button>Update Author</button></Link>
                     </div>
                     )
 }

@@ -44,11 +44,10 @@ module.exports = {
     updateAuthor : ( request, response ) => {
         Author.findOneAndUpdate({ _id : request.params.id }, request.body, { new : true, runValidators : true })
         .then((updatedAuthor) => {
-            response.status(201)
-            response.json({ author : updatedAuthor })
+            response.status(200).json(updatedAuthor)
         })
         .catch((error) => {
-            response.json({ message : 'Error(s) are as follows: ' + error})
+            response.status(400).json({ message : 'Error(s) are as follows: ' + error})
         })
     }
 }
