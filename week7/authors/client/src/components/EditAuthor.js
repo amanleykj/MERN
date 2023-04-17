@@ -36,8 +36,9 @@ const EditAuthor = (props) => {
             navigate(`/`)
         })
         .catch((err) => {
-            console.log(err.response.data.errors)
-            setAuthorErrors(err.response.data.errors)
+            console.log(err)
+            console.log(err.response.data.message)
+            setAuthorErrors(err.response.data.message)
         })
     }
     
