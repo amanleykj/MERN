@@ -37,8 +37,8 @@ const EditAuthor = (props) => {
         })
         .catch((err) => {
             console.log(err)
-            console.log(err.response.data.message)
-            setAuthorErrors(err.response.data.message)
+            console.log(err.response.data.errors)
+            setAuthorErrors(err.response.data.errors)
         })
     }
     

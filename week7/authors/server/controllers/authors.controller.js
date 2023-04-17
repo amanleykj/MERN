@@ -47,7 +47,7 @@ module.exports = {
             response.status(200).json(updatedAuthor)
         })
         .catch((error) => {
-            response.status(400).json({ message : 'Error(s) are as follows: ' + error})
+            response.status(400).json(error)
         })
     }
 }
