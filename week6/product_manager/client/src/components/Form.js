@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = (props) => {
 
+    const { initialTitle, initialPrice, initialDescription, onSubmitProp } = props;
+
     const { productList, setProductList } = props;
 
     const [ newProduct, setNewProduct ] = useState({

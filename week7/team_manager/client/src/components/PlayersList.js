@@ -20,21 +20,27 @@ const PlayersList = () => {
     }, [])
 
     const deleteHandler = (id) => {
-        axios.delete(`http://localhost:8000/api/players/${id}`)
-            .then((response) => {
-                console.log(response)
-                const updatedPlayerList = allPlayers.filter((player) => player._id !== id)
-                setAllPlayers(updatedPlayerList)
-            })
-            .catch((error) => {
+        let deleteConfirmed = window.confirm(`Are you sure you want to delete this player?`)
+        if(deleteConfirmed == true){
+            axios.delete(`http://localhost:8000/api/players/${id}`)
+                .then((response) => {
+                    console.log(response)
+                    const updatedPlayerList = allPlayers.filter((player) => player._id !== id)
+                    setAllPlayers(updatedPlayerList)
+                })
+                .catch((error) => {
                 console.log(error)
-            })
+                })
+            }
+        else{
+            navigate('/players/list')
+        }
     }
 
     return (
         <div>
 
-            <table className='table table-hover'>
+            <table className='table table-success table-striped'>
                 <thead>
                     <tr>
                         <th>Player Name</th>
@@ -42,16 +48,19 @@ const PlayersList = () => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-            </table>
+                <tbody>
             {
                 allPlayers.map((value, index) => (
-                    <div key = {index} className='boxes'>
-                        <p>{value.playerName}</p>
-                        <p>{value.prefPosition}</p>
-                        <button onClick={() => deleteHandler(value._id)}>Delete</button>
-                    </div>
+                    <tr key = {index}>
+                        <td>{value.playerName}</td>
+                        <td>{value.prefPosition}</td>
+                        <td><button onClick={() => deleteHandler(value._id)}>Delete</button></td>
+                    </tr>
                 ))
             }
+                </tbody>
+            
+            </table>
         </div>
     );
 }

@@ -55,8 +55,8 @@ const NewPlayer = () => {
                     <option value="PG">PG</option>
                 </select>
                 
-
-                <button>Submit</button>
+            <button>Submit</button>
+            
 
                 </form>
         </div>

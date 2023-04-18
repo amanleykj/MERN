@@ -10,6 +10,16 @@ module.exports = {
         .catch((error) => response.status(400).json(error))
     },
 
+    getOnePlayer : ( request, response) => {
+        Player.findOne({ _id : request.params.id })
+        .then((onePlayer) => {
+            response.status(200).json(onePlayer)
+        })
+        .catch((error) => {
+            response.json(400).json(error)
+        })
+    },
+
     createPlayer : ( request, response ) => {
         Player.create(request.body)
         .then((newPlayer) => {
