@@ -23,7 +23,9 @@ module.exports = {
     deletePlayer : ( request, response ) => {
         Player.deleteOne({ _id : request.params.id })
         .then((result) => {
+            console.log(result)
             console.log('Successfully deleted that player.')
+            response.status(204).json({ result : result})
         })
         .catch((error) => {
             response.json({ message : 'Error(s) are as follows: ' + error})
