@@ -4,6 +4,7 @@ import React, { useState, useEffect} from 'react'
 import Nav from './components/Nav';
 import PlayersList from './components/PlayersList';
 import NewPlayer from './components/NewPlayer';
+import GameOne from './components/GameOne';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route element = {<PlayersList/>} path = '/players/list' />
           <Route element = {<NewPlayer/>} path = '/players/addplayer' />
+          <Route element = {<GameOne/>} path = '/status/game/1' />
         </Routes>
       </BrowserRouter>
       

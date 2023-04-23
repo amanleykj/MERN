@@ -10,6 +10,18 @@ const PlayerSchema = new mongoose.Schema({
     prefPosition : {
         type : String
     },
+
+    gameOneStatus : {
+        type : String
+    },
+
+    gameTwoStatus : {
+        type : String
+    },
+
+    gameThreeStatus : {
+        type : String
+    }
     
 }, { timestamps : true })
 

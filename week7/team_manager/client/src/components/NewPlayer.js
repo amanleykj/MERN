@@ -6,7 +6,10 @@ const NewPlayer = () => {
 
     const [ player, setPlayer ] = useState({
         playerName : '',
-        prefPosition : ''
+        prefPosition : '',
+        gameOneStatus : '',
+        gameTwoStatus : '',
+        gameThreeStatus : ''
     })
 
     const navigate = useNavigate()
@@ -24,7 +27,10 @@ const NewPlayer = () => {
                 console.log(response)
                 setPlayer({
                     playerName : '',
-                    prefPosition : ''
+                    prefPosition : '',
+                    gameOneStatus : '',
+                    gameTwoStatus : '',
+                    gameThreeStatus : ''
                 })
                 navigate('/players/list')
             })
@@ -54,11 +60,14 @@ const NewPlayer = () => {
                     <option value="SG">SG</option>
                     <option value="PG">PG</option>
                 </select>
+
+                <input type='hidden' name = 'gameOneStatus' value = 'undecided' />
+                <input type='hidden' name = 'gameTwoStatus' value = 'undecided' />
+                <input type='hidden' name = 'gameThreeStatus' value = 'undecided' />
                 
             <button>Submit</button>
             
-
-                </form>
+            </form>
         </div>
     );
 }

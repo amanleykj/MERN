@@ -40,6 +40,16 @@ module.exports = {
         .catch((error) => {
             response.json({ message : 'Error(s) are as follows: ' + error})
         })
+    },
+
+    updatePlayer : ( request, response ) => {
+        Player.findOneAndUpdate({ _id : request.params.id }, request.body, { new : true, runValidators : true})
+        .then((updatedPlayer) => {
+            response.status(200).json(updatedPlayer)
+        })
+        .catch((error) => {
+            response.status(400).json(error)
+        })
     }
 
 }
