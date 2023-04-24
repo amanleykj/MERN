@@ -1,4 +1,7 @@
 const User = require('../models/users.model')
+const secret = process.env.SECRET_KEY
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 module.exports = {
     createUser : ( request, response ) => {
