@@ -43,5 +43,16 @@ module.exports = {
         .catch((error) => {
             response.status(400).json(error)
         })
+    },
+
+    getAllUsers : ( request, response ) => {
+        User.find()
+        .then((allUsers) => {
+            response.status(200).json(allUsers)
+            console.log(allUsers)
+        })
+        .catch((error) => {
+            response.status(400).json(error)
+        })
     }
 }
