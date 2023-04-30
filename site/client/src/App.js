@@ -6,6 +6,7 @@ import Main from './views/Main'
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Follow from './components/Follow'
+import Nav from './components/Nav';
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
+      <Nav />
         <Routes>
           <Route element = {<Main/>} path = '/' default />
           <Route element = {<Projects/>} path = '/projects' />

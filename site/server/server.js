@@ -11,5 +11,7 @@ require('./config/mongoose.config')
 
 const UserRoutes = require('./routes/users.routes')
 UserRoutes(app)
+const CommentRoutes = require('./routes/comments.routes')
+CommentRoutes(app)
 
 app.listen(PORT, console.log(`You are now listening on port ${PORT}`))

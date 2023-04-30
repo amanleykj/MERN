@@ -9,8 +9,6 @@ const Main = () => {
 
     return (
         <div>
-            <Nav />
-            <hr />
             <Greeter />
             <hr />
             <Footer />
