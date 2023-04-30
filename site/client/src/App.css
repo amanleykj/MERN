@@ -6,7 +6,22 @@
 .nav-top {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  background-color: #F5F5F5;
 
+}
+
+.nav-top-right {
+  display: flex;
+
+}
+
+.nav-links {
+  text-decoration: none;
+  padding-left: 75px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .App-logo {

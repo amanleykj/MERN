@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import Greeter from '../components/Greeter'
 
 const Main = () => {
 
@@ -9,6 +10,8 @@ const Main = () => {
     return (
         <div>
             <Nav />
+            <hr />
+            <Greeter />
             <hr />
             <Footer />
         </div>
