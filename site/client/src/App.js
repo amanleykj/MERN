@@ -9,6 +9,21 @@ import Follow from './components/Follow'
 import Nav from './components/Nav';
 
 function App() {
+
+  // window.onscroll = function() {navDrag()}
+
+  // const navbar = document.getElementById("nav-top")
+
+  // const sticky = navbar.offsetTop
+
+  // const navDrag = () => {
+  //   if(window.pageYOffset >= sticky){
+  //     navbar.classList.add("sticky")
+  //   }
+  //   else{
+  //     navbar.classList.remove("sticky")
+  //   }
+  // }
   
   return (
     <div className="App">

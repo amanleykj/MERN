@@ -13,5 +13,7 @@ const UserRoutes = require('./routes/users.routes')
 UserRoutes(app)
 const CommentRoutes = require('./routes/comments.routes')
 CommentRoutes(app)
+const ProjectRoutes = require('./routes/projects.routes')
+ProjectRoutes(app)
 
 app.listen(PORT, console.log(`You are now listening on port ${PORT}`))
